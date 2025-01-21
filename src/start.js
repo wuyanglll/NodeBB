@@ -134,7 +134,7 @@ function restart() {
 async function shutdown(code) {
 	winston.info('[app] Shutdown (SIGTERM/SIGINT/SIGQUIT) Initialised.');
 	try {
-		await require('./webserver').destroy();
+		require('./webserver').destroy();
 		winston.info('[app] Web server closed to connections.');
 		await require('./analytics').writeData();
 		winston.info('[app] Live analytics saved.');
